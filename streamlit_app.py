@@ -8,18 +8,23 @@ from sklearn.ensemble import RandomForestRegressor
 @st.cache_data
 def load_data():
     data = pd.read_csv("https://raw.githubusercontent.com/amankharwal/Website-data/master/electricity.csv")
-     # Replace invalid entries ('?') with NaN
-    data.replace('?', np.nan, inplace=True)
-    
-    # Convert all columns to numeric (this will convert columns with valid numbers and NaNs)
-    data = data.apply(pd.to_numeric, errors='coerce')
-    
-    # Drop rows with missing values
-    data = data.dropna()
-    
     return data
 
 data = load_data()
+
+data["ForecastWindProduction"] = pd.to_numeric(data["ForecastWindProduction"], errors= 'coerce')
+data["SystemLoadEA"] = pd.to_numeric(data["SystemLoadEA"], errors= 'coerce')
+data["SMPEA"] = pd.to_numeric(data["SMPEA"], errors= 'coerce')
+data["ORKTemperature"] = pd.to_numeric(data["ORKTemperature"], errors= 'coerce')
+data["ORKWindspeed"] = pd.to_numeric(data["ORKWindspeed"], errors= 'coerce')
+data["CO2Intensity"] = pd.to_numeric(data["CO2Intensity"], errors= 'coerce')
+data["ActualWindProduction"] = pd.to_numeric(data["ActualWindProduction"], errors= 'coerce')
+data["SystemLoadEP2"] = pd.to_numeric(data["SystemLoadEP2"], errors= 'coerce')
+data["SMPEP2"] = pd.to_numeric(data["SMPEP2"], errors= 'coerce')
+
+data = data.dropna()
+
+
 
 # Title and Introduction
 st.title('⚡ Electricity Price Prediction')
@@ -47,7 +52,7 @@ def predict_price(Date, Month, ForecastWindProduction, SystemLoadEA, SMPEA, ORKT
                             ORKWindspeed, CO2Intensity, ActualWindProduction, SystemLoadEP2]])
     return model.predict(input_data)
 
-# Input features
+
 st.header("Input Features")
 Date = st.slider('Select a Date', min_value=1, max_value=31)
 Month = st.slider('Select a Month', min_value=1, max_value=12)
@@ -60,7 +65,7 @@ CO2Intensity = st.number_input("CO2 Intensity (gCO2/kWh)", min_value=0.0, value=
 ActualWindProduction = st.number_input("Actual Wind Production (MW)", min_value=0.0, value=50.0)
 SystemLoadEP2 = st.number_input("SystemLoadEP2 (MW)", min_value=0.0, value=100.0)
 
-# Prediction
+
 if st.button("Submit"):
     try:
         prediction = predict_price(Date, Month, ForecastWindProduction, SystemLoadEA, SMPEA, ORKTemperature,
