@@ -16,3 +16,16 @@ ORKWindspeed= st.number_input("Windspeed")
 CO2Intensity= st.number_input("CO2Intensity")
 ActualWindProduction= st.number_input("ActualWindProduction")
 SystemLoadEP2= st.number_input("SystemLoadEP2")
+if st.button("submit"):
+    data = {'Day':Date,
+            'Month':Month,
+            'ForecastWindProduction':ForecastWindProduction,
+            'SystemLoadEA':SystemLoadEA,
+            'SMPEA':SMPEA,
+            'ORKTemperature':ORKTemperature,
+            'ORKWindspeed':ORKWindspeed,
+            'CO2Intensity':CO2Intensity,
+            'ActualWindProduction':ActualWindProduction,
+            'SystemLoadEP2':SystemLoadEP2}
+  input_data=pd.Dataframe(data,index=[0])
+st.write("Button clicked!")
