@@ -27,5 +27,4 @@ if st.button("submit"):
             'CO2Intensity':CO2Intensity,
             'ActualWindProduction':ActualWindProduction,
             'SystemLoadEP2':SystemLoadEP2}
-  input_data=pd.Dataframe(data,index=[0])
-st.write("Button clicked!")
+    input_data=pd.Dataframe(data,index=[0])
