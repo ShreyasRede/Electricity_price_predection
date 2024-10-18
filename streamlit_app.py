@@ -8,7 +8,16 @@ from sklearn.ensemble import RandomForestRegressor
 @st.cache_data
 def load_data():
     data = pd.read_csv("https://raw.githubusercontent.com/amankharwal/Website-data/master/electricity.csv")
-    return data.dropna()
+     # Replace invalid entries ('?') with NaN
+    data.replace('?', np.nan, inplace=True)
+    
+    # Convert all columns to numeric (this will convert columns with valid numbers and NaNs)
+    data = data.apply(pd.to_numeric, errors='coerce')
+    
+    # Drop rows with missing values
+    data = data.dropna()
+    
+    return data
 
 data = load_data()
 
