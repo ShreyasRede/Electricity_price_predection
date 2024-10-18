@@ -72,5 +72,5 @@ if st.button("Submit"):
                                    ORKWindspeed, CO2Intensity, ActualWindProduction, SystemLoadEP2)
         st.success(f"The predicted electricity price (SMPEP2) is: {prediction[0]:.2f}")
     except Exception as e:
-        st.error(f"Error making prediction: {str(e)}")
+        st.error(f"Error making prediction: ${str(e)}")
 
