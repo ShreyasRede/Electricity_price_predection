@@ -30,4 +30,4 @@ if st.button("submit"):
             'CO2Intensity':CO2Intensity,
             'ActualWindProduction':ActualWindProduction,
             'SystemLoadEP2':SystemLoadEP2}
-    input_data=pd.Dataframe(data,index=[0])
+    input_data=pd.DataFrame(data,index=[0])
