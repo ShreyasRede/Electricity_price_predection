@@ -70,7 +70,7 @@ if st.button("Submit"):
     try:
         prediction = predict_price(Date, Month, ForecastWindProduction, SystemLoadEA, SMPEA, ORKTemperature,
                                    ORKWindspeed, CO2Intensity, ActualWindProduction, SystemLoadEP2)
-        st.success(f"The predicted electricity price (SMPEP2) is: {prediction[0]:.2f}")
+        st.success(f"The predicted electricity price (SMPEP2) is: ${prediction[0]:.2f}")
     except Exception as e:
-        st.error(f"Error making prediction: ${str(e)}")
+        st.error(f"Error making prediction: {str(e)}")
 
