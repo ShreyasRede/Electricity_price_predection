@@ -34,7 +34,7 @@ x = data[["Day", "Month", "ForecastWindProduction", "SystemLoadEA",
 y = data["SMPEP2"]
 
 # Train-test split
-xtrain, xtest, ytrain, ytest = train_test_split(x, y, test_size=0.2, random_state=42)
+xtrain, xtest, ytrain, ytest = train_test_split(x, y, test_size=0.1, random_state=42)
 
 # Train model
 model = RandomForestRegressor()
