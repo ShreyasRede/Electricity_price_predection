@@ -6,4 +6,4 @@ st.info('Suppose that your business relies on computing services where the power
 
 Date =st.slider('Select a Date', min_value=1, max_value=31)
 Month =st.slider('Select a Month', min_value=1, max_value=12)
-st.write("youve selected date is",Date,"/",Month)
+st.write("you've selected date is",Date,"/",Month)
