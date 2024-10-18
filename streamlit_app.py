@@ -31,3 +31,4 @@ if st.button("submit"):
             'ActualWindProduction':ActualWindProduction,
             'SystemLoadEP2':SystemLoadEP2}
     input_data=pd.DataFrame(data,index=[0])
+    st.write(input_data)
