@@ -1,4 +1,7 @@
 import streamlit as st
+import pandas as pd
+import numpy as np
+data = pd.read_csv("https://raw.githubusercontent.com/amankharwal/Website-data/master/electricity.csv")
 
 st.title('⚡Electricity Price Prediction')
 
